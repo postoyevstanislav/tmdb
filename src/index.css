@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.card-img-top:hover {
+cursor: pointer;
+}
+
+.navbar-brand {
+  border: 2px solid #17a2b8;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #17a2b8;
+}
+
+.navbar-brand:hover {
+  cursor: pointer;
+  background-color: #17a2b8;
+}
+
+.btn-outline-info {
+  border: 2px solid #17a2b8;
+  color: #fff;
+  font-weight: 600;
+}
+
+.navbar-toggler {
+  color: #fff;
+  font-weight: 600;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+@media(max-width:1024px) {
+  .navbar-brand {
+    border: none;
+  }
+  .form-inline button {
+    border: 1px solid #fff;
+   }  
+}
+
+@media(max-width: 575px) {
+  .form-inline button {
+   border: 1px solid #fff;
+   margin-top: 10px;
+  } 
+
+  .form-inline {
+   width: 300px;
+   margin-top: 10px;
+   padding-top: 10px;
+   border-top: 1px solid #fff;
+  } 
+}

@@ -1,0 +1,36 @@
+.container {
+    max-width: 60%;
+    margin: 30px auto;
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.imgContainer {
+    margin: 0 30px 30px 0;
+}
+
+.imgContainer img {
+    width: 300px; 
+    height: auto;
+}
+
+.rating {
+    display: inline-block;
+    background-color: goldenrod;
+    color: #fff;
+    font-weight: 700;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+@media(max-width:1024px) {
+    .container {
+        flex-wrap:wrap;
+        justify-content: center;
+        max-width: 80%
+    }
+
+    .imgContainer {
+        margin-right: 0;
+    }
+}
