@@ -1,8 +1,27 @@
-import React from 'react';
-import styles from './MovieInfo.module.css'
+import React, {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+import styles from './MovieInfo.module.css';
 
-export const MovieInfo = ({currentMovie}) => {
-    
+export const MovieInfo = () => {
+
+const {id} = useParams()
+
+const [currentMovie, setCurrentMovie] = useState({})
+
+    const getMovieInfo = (id) => {
+        fetch(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${'b4e7239ec05624f521d3bafb199d0a05'}&language=en-US`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            setCurrentMovie(data)
+          });
+      };
+
+      useEffect(() => {
+            getMovieInfo(id)
+           return setCurrentMovie({})
+      }, [id])
     return (
         <>
         
