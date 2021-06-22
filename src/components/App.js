@@ -8,7 +8,6 @@ function App() {
   const apiKey = "b4e7239ec05624f521d3bafb199d0a05";
 
   const [movies, setMovies] = useState([]);
-  const [currentMovie, setCurrentMovie] = useState({});
   const [searchInput, setSearchInput] = useState("");
 
   const handleSearchValue = (e) => {
@@ -37,16 +36,6 @@ function App() {
       });
   };
 
-  const getMovieInfo = (id) => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setCurrentMovie(data);
-      });
-  };
-
   useEffect(() => {
     getMovies();
   }, []);
@@ -66,12 +55,12 @@ function App() {
             exact
             path="/"
             component={() => (
-              <MovieList movies={movies} handleMovieInfo={getMovieInfo} />
+              <MovieList movies={movies}/>
             )}
           />
           <Route
-            path="/info"
-            component={() => <MovieInfo currentMovie={currentMovie} />}
+            path="/info/:id"
+            component={MovieInfo}
           />
         </Switch>
       </Router>
