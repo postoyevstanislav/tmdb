@@ -28,7 +28,7 @@ const [currentMovie, setCurrentMovie] = useState({})
         <div className={styles.container}>
             <div className={styles.imgContainer}>
             
-                <img src={`http://image.tmdb.org/t/p/original/${currentMovie.poster_path}`} alt="" />
+                <img src={`http://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`} alt="" />
             </div>
 
             <div className={styles.infoContainer}>

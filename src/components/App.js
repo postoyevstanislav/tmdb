@@ -8,21 +8,23 @@ function App() {
   const apiKey = "b4e7239ec05624f521d3bafb199d0a05";
 
   const [movies, setMovies] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState('');
 
   const handleSearchValue = (e) => {
-    setSearchInput(e.target.value);
+      setSearchInput(e.target.value);
   };
 
   const searchMovie = (e) => {
     e.preventDefault();
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchInput}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMovies([...data.results]);
-      });
+    if(searchInput !== '') {
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchInput}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setMovies([...data.results]);
+        });
+    }
     setSearchInput("");
   };
 
@@ -49,7 +51,7 @@ function App() {
           handleSearchValue={handleSearchValue}
           searchMovie={searchMovie}
         />
-
+        
         <Switch>
           <Route
             exact
@@ -63,6 +65,8 @@ function App() {
             component={MovieInfo}
           />
         </Switch>
+
+        
       </Router>
     </div>
   );
